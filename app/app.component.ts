@@ -30,4 +30,8 @@ export class AppComponent implements OnInit {
     navegarRuta(ruta: string): void {
         window.open(ruta, "_blank");
     }
+
+    guardarContacto(contacto: Contacto): void {
+        this._contactosService.guardarContacto(contacto);
+    }
 }
