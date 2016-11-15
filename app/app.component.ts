@@ -23,7 +23,11 @@ export class AppComponent implements OnInit {
         this.listaContactos = this._contactosService.obtenerContactos();
     }
 
-    mostrarDetalles(contacto: Contacto):void {
+    mostrarDetalles(contacto: Contacto): void {
         this.contactoSeleccionado = contacto;
+    }
+
+    navegarRuta(ruta: string): void {
+        window.open(ruta, "_blank");
     }
 }
