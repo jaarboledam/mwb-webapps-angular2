@@ -1,0 +1,24 @@
+{
+  "contactos": [
+    {
+      "nombre": "Steve",
+      "apellidos": "Wozniak",
+      "email": "",
+      "telefono": "",
+      "twitter": "",
+      "facebook": "",
+      "avatar": "",
+      "id": 1
+    },
+    {
+      "nombre": "Tim",
+      "apellidos": "Cook",
+      "email": "",
+      "telefono": "",
+      "twitter": "",
+      "facebook": "",
+      "avatar": "",
+      "id": 2
+    }
+  ]
+}
