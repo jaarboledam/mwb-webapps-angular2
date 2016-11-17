@@ -12,3 +12,7 @@ button {
 button:hover {
     color: #1EAEDB;
 }
+
+img {
+    border-radius: 10px;
+}

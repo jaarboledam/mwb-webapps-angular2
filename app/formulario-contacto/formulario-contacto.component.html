@@ -7,6 +7,10 @@ valide el formulario, que es el comportamiento por defecto, y sea Angular
 en su lugar. -->
 <form #contactoRef="ngForm" (ngSubmit)="notificarContacto(contactoRef)" novalidate>
     <div class="row">
+        <!-- Avatar -->
+        <div class="offset-by-three six columns avatar">
+            <img [src]="rutaAvatar" >
+        </div>
         <!-- Nombre -->
         <div class="offset-by-three six columns">
             <label for="nombre">Nombre</label>

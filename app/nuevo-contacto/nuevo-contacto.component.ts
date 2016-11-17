@@ -6,7 +6,6 @@ import { ContactosService } from '../servicios/contactos.service';
 
 @Component({
     template: `
-        <h2>Nuevo contacto</h2>
         <!-- Formulario de alta de contactos -->
         <formulario-contacto (formularioAceptado)="guardarContacto($event)"></formulario-contacto>
     `
