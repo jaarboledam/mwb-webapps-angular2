@@ -3,7 +3,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 // Imports correspondientes a los ejemplos.
 import { EjemplosBindingComponent } from "./ejemplos/ejemplos-binding.component";
@@ -13,6 +13,7 @@ import { Servicio1 } from "./ejemplos/ejemplos-inyeccion-servicio1.service";
 import { Servicio2, ProveedorServicio2 } from "./ejemplos/ejemplos-inyeccion-servicio2.service";
 import { Servicio3, ProveedorServicio3 } from "./ejemplos/ejemplos-inyeccion-servicio3.service";
 import { ProveedorMiSuperValor } from "./ejemplos/ejemplos-inyeccion-value";
+import { EjemplosObservablesComponent, EjemplosObservablesWikipediaComponent } from './ejemplos/ejemplos-observables.component';
 
 // Imports correspondientes a la aplicación de agenda.
 import { AppComponent }   from './app.component';
@@ -38,7 +39,8 @@ import { ProveedorDireccionServidor, ProveedorDireccionFaker } from './configura
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    JsonpModule
   ],
 
   // Todas aquellos componentes, directivas y pipes de nuestra app deben declararse
@@ -53,7 +55,9 @@ import { ProveedorDireccionServidor, ProveedorDireccionFaker } from './configura
     EjemplosInyeccionComponent,
     FormularioContactoComponent,
     MisContactosComponent,
-    NuevoContactoComponent
+    NuevoContactoComponent,
+    EjemplosObservablesComponent,
+    EjemplosObservablesWikipediaComponent
   ],
 
   // En 'providers' establecemos los proveedores de todas las piezas de código que
