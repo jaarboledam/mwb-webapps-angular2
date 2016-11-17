@@ -19,6 +19,16 @@
       "facebook": "",
       "avatar": "",
       "id": 2
+    },
+    {
+      "nombre": "Patricio",
+      "apellidos": "Estrella",
+      "email": "",
+      "telefono": "",
+      "twitter": "",
+      "facebook": "",
+      "avatar": "",
+      "id": 3
     }
   ]
 }

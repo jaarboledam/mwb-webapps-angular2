@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Contacto } from '../entidades/contacto';
+import { Injectable, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import "rxjs/add/operator/map";
+
+import { Contacto } from '../entidades/contacto';
+import { DireccionServidor } from '../configuracion/rutas';
 
 // Con el decorador 'Injectable' marcamos una clase para que
 // se comporte como servicio.
@@ -10,12 +12,14 @@ import "rxjs/add/operator/map";
 export class ContactosService {
 
     // Inyectamos Http como dependencia.
-    constructor(private _http: Http){}
+    constructor(
+        private _http: Http,
+        @Inject(DireccionServidor) private _direccionServidor){}
 
     // Obtenemos la lista de contactos almacenados
     obtenerContactos(): Observable<Contacto[]> {
         return this._http
-                   .get("http://localhost:3004/contactos")
+                   .get(`${this._direccionServidor}/contactos`)
                    .map((respuesta: Response) => {
                        // Creamos una colección de objetos Contacto vacía
                        let contactos: Contacto[] = [];
@@ -34,11 +38,23 @@ export class ContactosService {
     // Guardamos el contacto indicado en servidor
     guardarContacto(contacto: Contacto): Observable<Contacto> {
         return this._http
-                   .post("http://localhost:3004/contactos", contacto)
+                   .post(`${this._direccionServidor}/contactos`, contacto)
                    .map((respuesta: Response) => {
                        // Obtenemos el cuerpo de la respuesta en formato JSON
-                       let json = respuesta.json();
+                       let json: any[] = respuesta.json();
                        // Por cada uno de ellos, creamos una instancia de Contacto
+                       return Contacto.nuevoDesdeJSON(json);
+                   });
+    }
+
+    // Editamos el contacto indicado en servidor
+    editarContacto(contacto: Contacto): Observable<Contacto> {
+        return this._http
+                   .put(`${this._direccionServidor}/contactos/${contacto.id}`, contacto)
+                   .map((respuesta: Response) => {
+                       // Obtenemos el cuerpo de la respuesta en formato JSON
+                       let json: any[] = respuesta.json();
+                       // Creamos una instacia de Contacto
                        return Contacto.nuevoDesdeJSON(json);
                    });
     }
@@ -46,9 +62,9 @@ export class ContactosService {
     // Eliminamos el contacto indicado del servidor
     eliminarContacto(contacto: Contacto): Observable<Contacto> {
         return this._http
-                   .delete(`http://localhost:3004/contactos/${contacto.id}`)
+                   .delete(`${this._direccionServidor}/contactos/${contacto.id}`)
                    .map((respuesta: Response) => {
-                       // Obtenemos el cuerpo de la respuesta en formato JSONlet
+                       // Obtenemos el cuerpo de la respuesta en formato JSON
                        let json: any[] = respuesta.json();
                        // Creamos una instacia de Contacto
                        return Contacto.nuevoDesdeJSON(json);
