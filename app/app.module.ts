@@ -14,6 +14,7 @@ import { Servicio2, ProveedorServicio2 } from "./ejemplos/ejemplos-inyeccion-ser
 import { Servicio3, ProveedorServicio3 } from "./ejemplos/ejemplos-inyeccion-servicio3.service";
 import { ProveedorMiSuperValor } from "./ejemplos/ejemplos-inyeccion-value";
 import { EjemplosObservablesComponent, EjemplosObservablesWikipediaComponent } from './ejemplos/ejemplos-observables.component';
+import { EjemplosPipeComponent } from './ejemplos/ejemplos-pipe.component';
 
 // Imports correspondientes a la aplicación de agenda.
 import { AppComponent }   from './app.component';
@@ -26,6 +27,7 @@ import {MisContactosComponent } from './mis-contactos/mis-contactos.component';
 import { NuevoContactoComponent } from './nuevo-contacto/nuevo-contacto.component';
 import { ContactosResolve } from './servicios/contactos-resolve.service';
 import { ProveedorDireccionServidor, ProveedorDireccionFaker } from './configuracion/rutas';
+import { OrdenarPipe } from './pipes/ordenar.pipe';
 
 // Decoramos la clase 'AppModule' con el decorador 'NgModule' para que ésta se
 // comporte como un módulo. Es necesario indicar ciertos metadatos.
@@ -57,7 +59,9 @@ import { ProveedorDireccionServidor, ProveedorDireccionFaker } from './configura
     MisContactosComponent,
     NuevoContactoComponent,
     EjemplosObservablesComponent,
-    EjemplosObservablesWikipediaComponent
+    EjemplosObservablesWikipediaComponent,
+    EjemplosPipeComponent,
+    OrdenarPipe
   ],
 
   // En 'providers' establecemos los proveedores de todas las piezas de código que
